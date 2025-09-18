@@ -1,0 +1,384 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AI Consultant Portfolio Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Darker Theme Color Palette */
+    --background: 240 25% 8%;
+    --foreground: 240 15% 95%;
+    
+    /* Modern AI Brand Colors */
+    --ai-primary: 270 75% 60%;
+    --ai-primary-glow: 270 85% 75%;
+    --ai-secondary: 195 85% 65%;
+    --ai-accent: 35 90% 68%;
+    --ai-success: 145 65% 50%;
+    --metallic-gold: 43 74% 55%;
+    --metallic-silver: 220 10% 75%;
+    
+    /* Hero Section Colors (Modern & Bold) */
+    --hero-bg: 240 25% 12%;
+    --hero-fg: 240 10% 95%;
+    --hero-accent: 270 85% 70%;
+    
+    /* Darker Gradients */
+    --gradient-neural: linear-gradient(135deg, hsl(270 75% 60%), hsl(195 85% 65%));
+    --gradient-ai-hero: linear-gradient(135deg, hsl(270 75% 60%) 0%, hsl(195 85% 65%) 50%, hsl(35 90% 68%) 100%);
+    --gradient-hero-bg: linear-gradient(135deg, hsl(240 25% 12%) 0%, hsl(240 30% 15%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(240 30% 12%) 0%, hsl(240 25% 10%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(240 25% 15%) 0%, hsl(240 20% 12%) 100%);
+    
+    /* Modern Glow Effects */
+    --shadow-ai-glow: 0 0 40px hsl(270 75% 60% / 0.3);
+    --shadow-neural: 0 10px 30px -10px hsl(195 85% 65% / 0.2);
+    --shadow-card: 0 8px 32px hsl(240 20% 20% / 0.08);
+    --shadow-hero: 0 20px 60px -10px hsl(270 75% 60% / 0.4);
+    
+    /* Animation Variables */
+    --transition-ai: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-neural: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    /* Base Design System - Darker Theme */
+    --background: 240 25% 8%;
+    --foreground: 240 15% 95%;
+
+    --card: 240 25% 15%;
+    --card-foreground: 240 15% 90%;
+
+    --popover: 240 25% 15%;
+    --popover-foreground: 240 15% 90%;
+
+    --primary: 270 75% 60%;
+    --primary-foreground: 240 15% 97%;
+
+    --secondary: 240 20% 25%;
+    --secondary-foreground: 240 15% 85%;
+
+    --muted: 240 15% 20%;
+    --muted-foreground: 240 10% 65%;
+
+    --accent: 195 85% 65%;
+    --accent-foreground: 240 15% 97%;
+
+    --destructive: 0 75% 65%;
+    --destructive-foreground: 240 15% 97%;
+
+    --border: 240 15% 25%;
+    --input: 240 20% 18%;
+    --ring: 270 75% 60%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 25 25% 12%;
+    --foreground: 35 15% 95%;
+
+    --card: 25 20% 15%;
+    --card-foreground: 35 15% 90%;
+
+    --popover: 25 20% 15%;
+    --popover-foreground: 35 15% 90%;
+
+    --primary: 15 75% 55%;
+    --primary-foreground: 25 15% 97%;
+
+    --secondary: 25 15% 25%;
+    --secondary-foreground: 35 15% 85%;
+
+    --muted: 25 10% 20%;
+    --muted-foreground: 35 10% 65%;
+
+    --accent: 45 85% 55%;
+    --accent-foreground: 25 15% 97%;
+
+    --destructive: 5 75% 55%;
+    --destructive-foreground: 35 15% 97%;
+
+    --border: 25 15% 25%;
+    --input: 25 20% 18%;
+    --ring: 15 75% 55%;
+    
+    --sidebar-background: 25 25% 12%;
+    --sidebar-foreground: 35 15% 90%;
+    --sidebar-primary: 15 75% 55%;
+    --sidebar-primary-foreground: 35 15% 97%;
+    --sidebar-accent: 25 15% 20%;
+    --sidebar-accent-foreground: 35 15% 85%;
+    --sidebar-border: 25 15% 25%;
+    --sidebar-ring: 15 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* AI Consultant Animations */
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-neural-pulse {
+    animation: neural-pulse 3s ease-in-out infinite;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animate-gradient-shift {
+    animation: gradient-shift 8s ease-in-out infinite;
+  }
+
+  /* Scroll-triggered text flow animations */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animate-fade-in-left {
+    animation: fade-in-left 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animate-fade-in-right {
+    animation: fade-in-right 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animate-text-reveal {
+    animation: text-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Initial hidden states for scroll animations */
+  .scroll-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .scroll-hidden-left {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  
+  .scroll-hidden-right {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  
+  .scroll-hidden-scale {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  
+  .scroll-hidden-text {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  
+  .ai-glow {
+    box-shadow: var(--shadow-ai-glow);
+  }
+  
+  .neural-shadow {
+    box-shadow: var(--shadow-neural);
+  }
+  
+  .card-shadow {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .gradient-neural {
+    background: var(--gradient-neural);
+  }
+  
+  .gradient-ai-hero {
+    background: var(--gradient-ai-hero);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .transition-ai {
+    transition: var(--transition-ai);
+  }
+  
+  .transition-neural {
+    transition: var(--transition-neural);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+@keyframes neural-pulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 20px hsl(15 75% 55% / 0.3);
+  }
+  50% { 
+    transform: scale(1.05);
+    box-shadow: 0 0 40px hsl(15 75% 55% / 0.5);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes text-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Component-specific styles */
+.hero-text {
+  background: var(--gradient-ai-hero);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+.efficiency-text {
+  background: linear-gradient(135deg, hsl(var(--ai-success)), hsl(var(--ai-accent)), hsl(var(--ai-secondary)));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 6s ease-in-out infinite;
+}
+
+.hero-section {
+  background: var(--gradient-hero-bg);
+  color: var(--hero-fg);
+}
+
+.hero-section .text-muted-foreground {
+  color: hsl(35 10% 85%);
+}
+
+.hero-section .ai-badge {
+  background: var(--gradient-neural);
+  box-shadow: var(--shadow-hero);
+}
+
+.project-card {
+  background: var(--gradient-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid hsl(15 75% 55% / 0.15);
+  transition: var(--transition-neural);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: hsl(15 75% 55% / 0.3);
+  box-shadow: var(--shadow-ai-glow);
+}
+
+.ai-badge {
+  background: var(--gradient-neural);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: var(--shadow-neural);
+}
