@@ -26,10 +26,10 @@ const Projects = () => {
     title: "Ed Sharpener YouTube Automation",
     category: "Content Creation",
     description: "Used GCP and AI tools to efficiently create automations for uploading content.",
-    impact: "Created 400+ educational videos with AI-powered workflows, reaching over 25,000 subscribers.",
+    impact: "Created prototypes for YouTube shorts end to end pipeline and Automatic YouTube video uploads using GCP",
     metrics: "25K+ Subscribers",
-    tools: ["YouTube Analytics", "AI Scripting", "Video Automation", "SEO Optimization"]
-  }, {
+    tools: ["YouTube Analytics", "AI Scripting", "Video Automation", "SEO Optimization"],
+    link: "https://youtu.be/VVy9Z5D3GLA"  }, {
     title: "Tutero Personalized Learning",
     category: "EdTech",
     description: "Developed AI-powered personalized math modules with dynamic theme customization for Australian K-12 students.",
