@@ -20,7 +20,6 @@ build/
 .env.production.local
 
 # EmailJS Configuration (contains sensitive credentials)
-src/config/emailjs.ts
 
 # Editor directories and files
 .vscode/
