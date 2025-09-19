@@ -4,9 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Phone, Send, Calendar } from "lucide-react";
+import { Send, Linkedin } from "lucide-react";
 import { toast } from "sonner";
 import emailjs from '@emailjs/browser';
 import { emailjsConfig } from '@/config/emailjs';
@@ -14,12 +13,8 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    company: "",
-    projectType: "",
-    budget: "",
-    timeline: "",
-    description: "",
-    priority: ""
+    mobile: "",
+    description: ""
   });
   const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = async (e: React.FormEvent) => {
@@ -29,12 +24,8 @@ const ContactForm = () => {
       const templateParams = {
         from_name: formData.name,
         reply_to: formData.email,
-        company: formData.company,
-        project_type: formData.projectType,
-        budget: formData.budget,
-        timeline: formData.timeline,
+        mobile: formData.mobile,
         description: formData.description,
-        priority: formData.priority,
         timestamp: new Date().toLocaleString(),
         source: "Devashish Phadnis AI Consultant Portfolio"
       };
@@ -45,12 +36,8 @@ const ContactForm = () => {
       setFormData({
         name: "",
         email: "",
-        company: "",
-        projectType: "",
-        budget: "",
-        timeline: "",
-        description: "",
-        priority: ""
+        mobile: "",
+        description: ""
       });
     } catch (error: any) {
       console.error("Error submitting form:", error);
@@ -85,36 +72,21 @@ const ContactForm = () => {
             <Card className="project-card">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-base md:text-lg">
-                  <Mail className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-                  Email
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm md:text-base text-muted-foreground break-all">devashish.phadnis@gmail.com</p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-base md:text-lg">
-                  <Phone className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-                  Phone
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm md:text-base text-muted-foreground">+91 9560922289</p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-base md:text-lg">
                   Current Role
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="font-medium text-sm md:text-base">Content Expert & AI Generalist</p>
-                <p className="text-xs md:text-sm text-muted-foreground">Khan Academy India</p>
+                <p className="text-xs md:text-sm text-muted-foreground mb-3">Khan Academy India</p>
+                <a 
+                  href="https://www.linkedin.com/in/devashishphadnis/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm"
+                >
+                  <Linkedin className="w-4 h-4" />
+                  Connect on LinkedIn
+                </a>
               </CardContent>
             </Card>
           </div>
@@ -140,75 +112,8 @@ const ContactForm = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="company">Company/Organization</Label>
-                  <Input id="company" value={formData.company} onChange={e => handleInputChange('company', e.target.value)} placeholder="Your company name" />
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="projectType" className="text-sm md:text-base">Project Type *</Label>
-                    <Select required onValueChange={value => handleInputChange('projectType', value)}>
-                      <SelectTrigger className="text-sm md:text-base">
-                        <SelectValue placeholder="Select project type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="l&d-optimization">L&D Workflow Optimization</SelectItem>
-                        <SelectItem value="edtech-content">EdTech Content Creation</SelectItem>
-                        <SelectItem value="ai-automation">AI Process Automation</SelectItem>
-                        <SelectItem value="video-production">Video Production & Animation</SelectItem>
-                        <SelectItem value="custom-ai-tools">Custom AI Tool Integration</SelectItem>
-                        <SelectItem value="training-workshops">AI Training & Workshops</SelectItem>
-                        <SelectItem value="other">Other (Please specify)</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="budget" className="text-sm md:text-base">Budget Range</Label>
-                    <Select onValueChange={value => handleInputChange('budget', value)}>
-                      <SelectTrigger className="text-sm md:text-base">
-                        <SelectValue placeholder="Select budget range" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="under-5k">Under $5,000</SelectItem>
-                        <SelectItem value="5k-15k">$5,000 - $15,000</SelectItem>
-                        <SelectItem value="15k-30k">$15,000 - $30,000</SelectItem>
-                        <SelectItem value="30k-plus">$30,000+</SelectItem>
-                        <SelectItem value="discuss">Let's discuss</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="timeline" className="text-sm md:text-base">Project Timeline</Label>
-                    <Select onValueChange={value => handleInputChange('timeline', value)}>
-                      <SelectTrigger className="text-sm md:text-base">
-                        <SelectValue placeholder="Expected timeline" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="asap">ASAP (Rush project)</SelectItem>
-                        <SelectItem value="1-month">Within 1 month</SelectItem>
-                        <SelectItem value="2-3-months">2-3 months</SelectItem>
-                        <SelectItem value="3-6-months">3-6 months</SelectItem>
-                        <SelectItem value="flexible">Flexible timeline</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="priority" className="text-sm md:text-base">Priority Level</Label>
-                    <Select onValueChange={value => handleInputChange('priority', value)}>
-                      <SelectTrigger className="text-sm md:text-base">
-                        <SelectValue placeholder="Select priority" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="low">Low - Just exploring</SelectItem>
-                        <SelectItem value="medium">Medium - Planning phase</SelectItem>
-                        <SelectItem value="high">High - Ready to start</SelectItem>
-                        <SelectItem value="urgent">Urgent - Need immediate help</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
+                  <Label htmlFor="mobile">Mobile Number (Optional)</Label>
+                  <Input id="mobile" type="tel" value={formData.mobile} onChange={e => handleInputChange('mobile', e.target.value)} placeholder="Your mobile number" />
                 </div>
 
                 <div className="space-y-2">
