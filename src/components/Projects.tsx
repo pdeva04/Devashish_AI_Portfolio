@@ -52,28 +52,28 @@ const Projects = () => {
     metrics: "25% Time Saved",
     tools: ["Gemini", "Apps Script", "GCP APIs", "Google Sheets"]
   }];
-  return <section id="projects" className="py-20 bg-gradient-subtle">
+  return <section id="projects" className="py-12 md:py-20 bg-gradient-subtle">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <div 
             ref={titleRef as any}
             className={`transition-all duration-700 ${titleVisible ? 'animate-fade-in-up' : 'scroll-hidden'}`}
           >
             <Badge className="mb-4 ai-badge">Featured Projects</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 hero-text text-pink-900 leading-[1.2] pb-1 md:pb-1.5">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 hero-text text-pink-900 leading-[1.2] pb-1 md:pb-1.5">
               Transforming Ideas into Impact
             </h2>
           </div>
           <p 
             ref={descRef as any}
-            className={`text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-700 ${descVisible ? 'animate-text-reveal' : 'scroll-hidden-text'}`}
+            className={`text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-700 ${descVisible ? 'animate-text-reveal' : 'scroll-hidden-text'}`}
           >
             Discover how I've helped organizations across EdTech, L&D, and creative industries 
             achieve remarkable efficiency gains through AI-powered solutions.
           </p>
         </div>
 
-        <div ref={projectsRef as any} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={projectsRef as any} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <div 
               key={index} 

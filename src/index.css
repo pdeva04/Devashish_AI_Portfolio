@@ -325,6 +325,36 @@
   50% { background-position: 100% 50%; }
 }
 
+/* Mobile-first responsive improvements */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Prevent text overflow on mobile */
+  .hero-text {
+    word-break: break-word;
+    hyphens: auto;
+  }
+  
+  /* Ensure buttons are touch-friendly */
+  button, .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Improve form spacing on mobile */
+  .space-y-6 > * + * {
+    margin-top: 1rem;
+  }
+  
+  /* Better mobile grid layouts */
+  .grid {
+    gap: 1rem;
+  }
+}
+
 /* Component-specific styles */
 .hero-text {
   background: var(--gradient-ai-hero);

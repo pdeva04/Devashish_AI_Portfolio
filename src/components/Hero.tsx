@@ -104,14 +104,14 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-hero-bg/95 to-hero-bg/90 backdrop-blur-sm bg-[#040513]/[0.76]" />
       </div>
 
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-20 animate-float">
+      {/* Floating Elements - Hidden on mobile to prevent overlap */}
+      <div className="hidden md:block absolute top-20 left-20 animate-float">
         <div className="w-16 h-16 rounded-full gradient-neural animate-neural-pulse flex items-center justify-center">
           <Brain className="w-8 h-8 text-white" />
         </div>
       </div>
       
-      <div className="absolute top-40 right-32 animate-float" style={{
+      <div className="hidden lg:block absolute top-40 right-32 animate-float" style={{
       animationDelay: '2s'
     }}>
         <div className="w-12 h-12 rounded-full bg-ai-secondary/30 backdrop-blur-sm border border-ai-secondary/50 flex items-center justify-center shadow-neural">
@@ -119,7 +119,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-40 left-32 animate-float" style={{
+      <div className="hidden lg:block absolute bottom-40 left-32 animate-float" style={{
       animationDelay: '4s'
     }}>
         <div className="w-14 h-14 rounded-full bg-ai-accent/30 backdrop-blur-sm border border-ai-accent/50 flex items-center justify-center shadow-neural">
@@ -129,50 +129,50 @@ const Hero = () => {
 
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4 text-center animate-slide-up">
-        <div className="mb-6">
-          <span className="text-2xl md:text-3xl font-bold px-4 py-2 rounded-full border border-ai-primary/30 backdrop-blur-sm">
+        <div className="mb-4 md:mb-6">
+          <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold px-3 py-2 md:px-4 md:py-2 rounded-full border border-ai-primary/30 backdrop-blur-sm">
             <span className="hero-text">Let us tap</span> <span className="text-metallic-silver" style={{textShadow: '0 0 2px hsl(var(--metallic-silver) / 0.5)'}}>{displayText}</span> <span className="hero-text">superpower</span>
           </span>
         </div>
         
-        <div className="flex flex-col items-center gap-8 mb-8 text-center">
-          <img src={profileImage} alt="Devashish Phadnis - AI Consultant" className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary/20 shadow-lg" />
+        <div className="flex flex-col items-center gap-4 md:gap-8 mb-6 md:mb-8 text-center">
+          <img src={profileImage} alt="Devashish Phadnis - AI Consultant" className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full object-cover border-4 border-primary/20 shadow-lg" />
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-4 leading-tight">
               <span className="hero-text">Transform Your Business with</span>
             </h1>
-            <div className="text-3xl md:text-5xl mb-4 h-16 flex items-center justify-center">
+            <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-3 md:mb-4 min-h-[3rem] md:min-h-[4rem] flex items-center justify-center">
               <span className="text-metallic-silver font-bold italic transition-ai">
                 {services[currentService]}
               </span>
             </div>
-            <p className="text-xl md:text-2xl text-muted-foreground">
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground">
               <span className="hero-text font-semibold">Devashish Phadnis</span> - AI Consultant
             </p>
           </div>
         </div>
 
-        <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto mb-12 leading-relaxed text-center">
+        <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto mb-8 md:mb-12 leading-relaxed text-center px-4">
           Empowering EdTech, L&D, Theatre, and Production agencies with cutting-edge AI solutions. 
-          <br className="hidden md:block" />
+          <br className="hidden sm:block" />
           Delivering <span className="efficiency-text italic font-bold">measurable efficiency gains</span> through intelligent automation and optimized workflows.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <Button onClick={scrollToProjects} size="lg" className="gradient-neural hover:ai-glow transition-neural text-white font-semibold px-8 py-4 text-lg shadow-hero">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 md:mb-16 px-4">
+          <Button onClick={scrollToProjects} size="lg" className="gradient-neural hover:ai-glow transition-neural text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg shadow-hero w-full sm:w-auto">
             Explore My Work
           </Button>
-          <Button onClick={scrollToContact} variant="outline" size="lg" className="border-ai-secondary/60 text-ai-secondary hover:bg-ai-secondary hover:text-white transition-ai px-8 py-4 text-lg backdrop-blur-sm bg-white/10">
+          <Button onClick={scrollToContact} variant="outline" size="lg" className="border-ai-secondary/60 text-ai-secondary hover:bg-ai-secondary hover:text-white transition-ai px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg backdrop-blur-sm bg-white/10 w-full sm:w-auto">
             Start Your Project
           </Button>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute -bottom-2 left-1/2 transform -translate-x-8 animate-bounce">
+        <div className="absolute -bottom-2 left-1/2 transform -translate-x-6 animate-bounce">
           <div 
             onClick={scrollToProjects}
-            className="w-12 h-12 rounded-full border-2 border-muted-foreground/30 bg-background/20 backdrop-blur-sm flex items-center justify-center hover:border-primary/50 transition-colors mx-auto cursor-pointer">
-            <ChevronDown className="w-6 h-6 text-muted-foreground" />
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-muted-foreground/30 bg-background/20 backdrop-blur-sm flex items-center justify-center hover:border-primary/50 transition-colors mx-auto cursor-pointer">
+            <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-muted-foreground" />
           </div>
         </div>
       </div>

@@ -66,57 +66,55 @@ const ContactForm = () => {
       [field]: value
     }));
   };
-  return <section id="contact" className="py-20 bg-gradient-subtle">
+  return <section id="contact" className="py-12 md:py-20 bg-gradient-subtle">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-slide-up">
+        <div className="text-center mb-12 md:mb-16 animate-slide-up">
           <Badge className="mb-4 ai-badge">Get In Touch</Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 hero-text">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 hero-text">
             Start Your AI Transformation
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Ready to boost your efficiency with AI? Let's discuss your project and explore 
             how we can achieve remarkable results together.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
           {/* Contact Info */}
-          <div className="lg:col-span-1 space-y-6">
+          <div className="lg:col-span-1 space-y-4 md:space-y-6">
             <Card className="project-card">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Mail className="w-5 h-5 text-primary" />
+                <CardTitle className="flex items-center gap-2 text-base md:text-lg">
+                  <Mail className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                   Email
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">devashish.phadnis@gmail.com</p>
+                <p className="text-sm md:text-base text-muted-foreground break-all">devashish.phadnis@gmail.com</p>
               </CardContent>
             </Card>
 
             <Card className="project-card">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Phone className="w-5 h-5 text-primary" />
+                <CardTitle className="flex items-center gap-2 text-base md:text-lg">
+                  <Phone className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                   Phone
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">+91 9560922289</p>
+                <p className="text-sm md:text-base text-muted-foreground">+91 9560922289</p>
               </CardContent>
             </Card>
 
-
             <Card className="project-card">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  
+                <CardTitle className="flex items-center gap-2 text-base md:text-lg">
                   Current Role
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="font-medium">Content Expert & AI Generalist</p>
-                <p className="text-sm text-muted-foreground">Khan Academy India</p>
+                <p className="font-medium text-sm md:text-base">Content Expert & AI Generalist</p>
+                <p className="text-xs md:text-sm text-muted-foreground">Khan Academy India</p>
               </CardContent>
             </Card>
           </div>
@@ -146,11 +144,11 @@ const ContactForm = () => {
                   <Input id="company" value={formData.company} onChange={e => handleInputChange('company', e.target.value)} placeholder="Your company name" />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="projectType">Project Type *</Label>
+                    <Label htmlFor="projectType" className="text-sm md:text-base">Project Type *</Label>
                     <Select required onValueChange={value => handleInputChange('projectType', value)}>
-                      <SelectTrigger>
+                      <SelectTrigger className="text-sm md:text-base">
                         <SelectValue placeholder="Select project type" />
                       </SelectTrigger>
                       <SelectContent>
@@ -165,9 +163,9 @@ const ContactForm = () => {
                     </Select>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="budget">Budget Range</Label>
+                    <Label htmlFor="budget" className="text-sm md:text-base">Budget Range</Label>
                     <Select onValueChange={value => handleInputChange('budget', value)}>
-                      <SelectTrigger>
+                      <SelectTrigger className="text-sm md:text-base">
                         <SelectValue placeholder="Select budget range" />
                       </SelectTrigger>
                       <SelectContent>
@@ -181,11 +179,11 @@ const ContactForm = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="timeline">Project Timeline</Label>
+                    <Label htmlFor="timeline" className="text-sm md:text-base">Project Timeline</Label>
                     <Select onValueChange={value => handleInputChange('timeline', value)}>
-                      <SelectTrigger>
+                      <SelectTrigger className="text-sm md:text-base">
                         <SelectValue placeholder="Expected timeline" />
                       </SelectTrigger>
                       <SelectContent>
@@ -198,9 +196,9 @@ const ContactForm = () => {
                     </Select>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="priority">Priority Level</Label>
+                    <Label htmlFor="priority" className="text-sm md:text-base">Priority Level</Label>
                     <Select onValueChange={value => handleInputChange('priority', value)}>
-                      <SelectTrigger>
+                      <SelectTrigger className="text-sm md:text-base">
                         <SelectValue placeholder="Select priority" />
                       </SelectTrigger>
                       <SelectContent>
